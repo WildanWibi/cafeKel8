@@ -61,11 +61,10 @@ public class cafeBumi8 {
                     break;
                 }
             }
-        }
-         while (!meja);
+        } while (!meja);
 
         int totalHargaPesanan = 0;
-    }
+
         tampilkanMenu();
         while (true) {
             System.out.print("Pilih menu (masukkan nomor menu, atau 0 untuk selesai): ");
@@ -100,6 +99,13 @@ public class cafeBumi8 {
         System.out.println("Pesanan berhasil ditambahkan.");
         System.out.println("-----------------------------------");
         System.out.println("Total harga pesanan: Rp " + totalHargaPesanan);
-    
-}
+    }
 
+    public static void tampilkanMenu() {
+        System.out.println("\n============ MENU KAFE ============");
+        for (int i = 0; i < daftarMenu.length; i++) {
+            System.out.println((i + 1) + ". " + daftarMenu[i] + " - Rp " + hargaMenu[i]);
+        }
+        System.out.println("===================================");
+    }
+}
