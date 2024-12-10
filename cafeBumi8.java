@@ -27,10 +27,10 @@ public class cafeBumi8 {
                     prosesPesanan();
                     break;
                 case 2:
-                    tampilkanPesanan();
+                    //tampilkanPesanan();
                     break;
                 case 3:
-                    hitungTotalPendapatan();
+                    //hitungTotalPendapatan();
                     break;
                 case 4:
                     menu = false;
@@ -40,5 +40,29 @@ public class cafeBumi8 {
                     System.out.println("Pilihan tidak valid. Silakan coba lagi.");
             }
         }
+    }
+
+    public static void prosesPesanan() {
+        kel8.nextLine();
+        System.out.print("Masukkan nama pelanggan: ");
+        String namaPelanggan = kel8.nextLine();
+        String nomorMeja;
+        boolean meja = false;
+
+        do {
+            System.out.print("Masukkan nomor meja: ");
+            nomorMeja = kel8.nextLine();
+            meja = true;
+
+            for (int i = 0; i < jumlahPesanan; i++) {
+                if (pesanan[i][1].equals(nomorMeja)) {
+                    System.out.println("Nomor meja ini sudah terpakai. Silakan pilih nomor meja lain.");
+                    meja = false;
+                    break;
+                }
+            }
+        } while (!meja);
+
+        int totalHargaPesanan = 0;
     }
 }
