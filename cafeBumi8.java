@@ -61,8 +61,45 @@ public class cafeBumi8 {
                     break;
                 }
             }
-        } while (!meja);
+        }
+         while (!meja);
 
         int totalHargaPesanan = 0;
     }
+        tampilkanMenu();
+        while (true) {
+            System.out.print("Pilih menu (masukkan nomor menu, atau 0 untuk selesai): ");
+            int pilihanMenu = kel8.nextInt();
+
+            if (pilihanMenu == 0) break;
+
+            if (pilihanMenu < 1 || pilihanMenu > daftarMenu.length) {
+                System.out.println("Pilihan menu tidak valid. Silakan coba lagi.");
+                continue;
+            }
+
+            System.out.print("Masukkan jumlah item untuk " + daftarMenu[pilihanMenu - 1] + ": ");
+            int jumlahItem = kel8.nextInt();
+
+            if (jumlahItem <= 0) {
+                System.out.println("Jumlah item harus lebih dari 0. Silakan coba lagi.");
+                continue;
+            }
+
+            int hargaItem = hargaMenu[pilihanMenu - 1] * jumlahItem;
+            totalHargaPesanan += hargaItem;
+
+            pesanan[jumlahPesanan][0] = namaPelanggan;
+            pesanan[jumlahPesanan][1] = nomorMeja;
+            pesanan[jumlahPesanan][2] = daftarMenu[pilihanMenu - 1];
+            pesanan[jumlahPesanan][3] = String.valueOf(jumlahItem);
+            pesanan[jumlahPesanan][4] = String.valueOf(hargaItem);
+            jumlahPesanan++;
+        }
+
+        System.out.println("Pesanan berhasil ditambahkan.");
+        System.out.println("-----------------------------------");
+        System.out.println("Total harga pesanan: Rp " + totalHargaPesanan);
+    
 }
+
